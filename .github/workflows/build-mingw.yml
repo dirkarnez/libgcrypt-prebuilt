@@ -37,6 +37,7 @@ jobs:
             export PATH="$workspace/mingw64:$workspace/mingw64/bin:$workspace/msys64/usr/bin:/usr/bin" &&
             cd libgcrypt && 
             g++ --version && 
+            ./autogen.sh
             ./configure --help &&
             ./configure --disable-shared --prefix="$(pwd)/${{ env.installationPath }}" &&
             make VERBOSE=1 && make install
