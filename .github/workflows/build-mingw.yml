@@ -28,7 +28,7 @@ jobs:
           
       - name: curl libgpg-error-v1.46-x86_64-posix-seh-rev0-8.1.0.zip
         shell: cmd
-        run:  cd /d ${{ github.workspace }} && curl https://github.com/dirkarnez/libgpg-error-prebuilt/releases/download/v1.46/libgpg-error-v1.46-x86_64-posix-seh-rev0-8.1.0.zip -L --output libgpg-error-v1.46-x86_64-posix-seh-rev0-8.1.0.zip && dir && 7z.exe x libgpg-error-v1.46-x86_64-posix-seh-rev0-8.1.0.zip -o"libgpg-error-v1.46-x86_64-posix-seh-rev0-8.1.0"
+        run:  cd /d ${{ github.workspace }} && curl https://github.com/dirkarnez/libgpg-error-prebuilt/releases/download/v1.46/libgpg-error-v1.46-x86_64-posix-seh-rev0-8.1.0.zip -L --output libgpg-error-v1.46-x86_64-posix-seh-rev0-8.1.0.zip && dir && 7z.exe x libgpg-error-v1.46-x86_64-posix-seh-rev0-8.1.0.zip -o"${{ github.workspace }}\libgpg-error-v1.46-x86_64-posix-seh-rev0-8.1.0"
         
       - name: curl x86_64-8.1.0-release-posix-seh-rt_v6-rev0.7z
         shell: cmd
@@ -45,7 +45,6 @@ jobs:
             cd libgpg-error-v1.46-x86_64-posix-seh-rev0-8.1.0 &&
             libgpg-error_location=$(pwd) &&
             rm ./lib/libgpg-error.la &&
-            cd .. &&
             ls &&
             cd .. &&
             export PATH="$workspace/mingw64:$workspace/mingw64/bin:$workspace/PortableGit-2.38.1-64-bit:$workspace/PortableGit-2.38.1-64-bit/bin:$workspace/msys64/usr/bin:/usr/bin" &&
