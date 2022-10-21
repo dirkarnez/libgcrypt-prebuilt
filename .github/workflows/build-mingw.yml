@@ -42,16 +42,17 @@ jobs:
         shell: msys2 {0}
         run: |
             workspace=$(pwd) &&
-            cd libgpg-error-v1.46-x86_64-posix-seh-rev0-8.1.0 &&
-            libgpg-error_location=$(pwd) &&
+            cd ./libgpg-error-v1.46-x86_64-posix-seh-rev0-8.1.0 &&
+            ls &&
+            libgpgerror_location=$(pwd) &&
             rm ./lib/libgpg-error.la &&
             ls &&
             cd .. &&
             export PATH="$workspace/mingw64:$workspace/mingw64/bin:$workspace/PortableGit-2.38.1-64-bit:$workspace/PortableGit-2.38.1-64-bit/bin:$workspace/msys64/usr/bin:/usr/bin" &&
             cd libgcrypt && 
             g++ --version && 
-            export CPPFLAGS="$CPPFLAGS -I$libgpg-error_location/include" &&
-            export LDFLAGS="$LDFLAGS -L$libgpg-error_location/lib" &&
+            export CPPFLAGS="$CPPFLAGS -I$libgpgerror_location/include" &&
+            export LDFLAGS="$LDFLAGS -L$libgpgerror_location/lib" &&
             export LIBS="$LIBS -lgpg-error" &&
             echo $CPPFLAGS &&
             echo $LDFLAGS &&
